@@ -1,0 +1,42 @@
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header img{
+    transition: 0.6s;
+    cursor: pointer;
+}
+
+header img:hover{
+    transform: translateX(-20px)
+}
+
+header nav a{
+    margin: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+header nav a:hover{
+    color: brown;
+}
+
+footer ul a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer ul li{
+    transition: 0.3s;
+}
+
+footer ul li:hover{
+    transform: translateX(5px);
+}

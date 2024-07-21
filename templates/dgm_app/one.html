@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block titre %}
+<title>Description</title>
+{% endblock titre %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+    <div class="row">
+        <div class="col-8 mx-auto" >
+            <img src="/media/{{one.img}}" style="margin-top: 30px;" width="800" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5 mx-auto my-4" style="border-bottom: 1px solid rgb(105, 101, 101);">
+            <h3 style="text-align: center;">{{one.nom}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <p style="text-align: justify;">{{one.description}}</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+

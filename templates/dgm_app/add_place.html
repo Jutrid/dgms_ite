@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 mx-auto" style="border: 1px solid black; margin-top: 20px; border-radius: 10px;">
+                <form action="" method='post' class="need-validation">
+                    {% csrf_token %}
+                    <div style="width: min-content; margin: 20px auto;">
+                        <img src="{% static 'img/place.png' %}" alt="Se connecter">
+                    </div>
+                    <input type="text" name='nom' style="font-size: 1.1rem;" class="form-control my-3 h2" placeholder="Entrer le nom du site" >
+                    <textarea class="form-control" name="desc"></textarea>
+                    <input type="file" name='img' style="font-size: 1.1rem;" class="form-control my-3 h2" >
+                    <div style="width: min-content; margin: 0 auto;">
+                        <button
+                            id=""
+                            style="width: 200px;"
+                            class="btn btn-outline-primary my-3 p-3"
+                            role="button"
+                            type='submit'
+                            >Ajouter</button
+                        >
+                    </div>
+
+                    {% for message in messages %}
+                        <p class="info">{{message}}</p>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>

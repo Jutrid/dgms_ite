@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row my-4  border-bottom border-primary text-center">
+            <div class="col-md-4">
+                <h1 style="font-size: 2.4rem;" class="text-primary">Administration du site</h1>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xl-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
+                <a href="/dashboard/gestion new" style="text-decoration: none;">
+                    <div class="mx-auto" style="width: min-content;">
+                        <img src="{% static 'img/new.png' %}" width="130" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-center text-primary">Gestion des Nouvelles</h5>
+                        <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: {{nb_new}}</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
+                <a href="/dashboard/gestion place" style="text-decoration: none;">
+                    <div class="mx-auto" style="width: min-content;">
+                        <img src="{% static 'img/place.png' %}" width="130" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-center text-primary">Gestion des Sites</h5>
+                        <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: {{nb_place}}</h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
+                <a href="" style="text-decoration: none;">
+                    <div class="mx-auto" style="width: min-content;">
+                        <img src="{% static 'img/demande.png' %}" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-center text-primary">Gestion des Demandes</h5>
+                        <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: </h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
+                <a href="/dashboard/gestion user" style="text-decoration: none;">
+                    <div class="mx-auto" style="width: min-content;">
+                        <img src="{% static 'img/users.png' %}" alt="">
+                    </div>
+                    <div>
+                        <h5 class="text-center text-primary">Gestion des Utilisateurs</h5>
+                        <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: {{nb_user}}</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <a href="{% url "home" %}" class="btn btn-outline-danger p-3">Page D'accueil</a>
+    </div>
+    <div class="container">
+        <div class="col-12" style="margin-top: 20px;">
+            <h6 style="text-align: center; margin: 10px;">All Right Reserved DGM/Kisangani. Copyriright &#xa9 2024</h6>
+        </div>
+    </div>
+
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block titre %}{% endblock titre %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="row p-1">
+        <div class="col-6 text-left">
+            {% if user.is_authenticated %}
+                <h5 class="" style='color: rgb(12, 12, 223);'> <img src="{% static 'img/user.png' %}" class='mx-2' width="23" alt="">{{user.username}}</h5>
+            {% endif %}
+        </div>
+
+    </div>
+    <header>
+        <div class="logo" id="debut">
+            <img src="{% static 'img/logo.jpeg' %}" width="200" alt="">
+        </div>
+        <nav>
+            <a href="{% url "home" %}">Accueil</a>
+            <a href="{% url "more" %}">Voir Plus</a>
+            <a href="{% url "login" %}" class="btn btn-primary mx-2">Connexion</a>
+            <a href="{% url "signin" %}" class="btn btn-outline-secondary mx-2">S'incrire</a>
+            <a href="/form_demande" class="btn btn-outline-danger mx-2">Commencer</a>
+        </nav>
+    </header>
+
+    {% block content %}
+    {% endblock content %}
+
+    <footer class="container border-top">
+        <div class="row my-4" style="margin-top: 30px; padding: 20px; display: flex; justify-content: space-around;">
+            <div class="col-3">
+                <h3 class="text-center" id='contact'>Contact</h3>
+                <ul style="list-style-type: none;">
+                    <li><img src="{% static 'img/phone.svg' %}" alt=""> 92038292</li>
+                    <li><img src="{% static 'img/facebook.svg' %}" alt=""> dgmdrc</li>
+                    <li><img src="{% static 'img/instagram.svg' %}" alt=""> dgmdrc</li>
+                    <li><img src="{% static 'img/whatsapp.svg' %}" alt=""> 92038292</li>
+                    <li>x: 92038292</li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <h3 class="text-center" id='about'>A propos</h3>
+                <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil beatae recusandae vel asperiores provident architecto tempore accusamus, vero laboriosam velit.</p>
+            </div>
+            <div class="col-3">
+                <h3 class="text-center">Lien rapide</h3>
+                <ul style="list-style-type: none;">
+                    <li><a href="{% url "home" %}">Accueil</a></li>
+                    <li><a href="{% url "more" %}">Voir plus</a></li>
+                    <li><a href="{% url "login" %}">Connexion</a></li>
+                    <li><a href="#debut">Haut de page</a></li>
+                    {% if user.is_superuser %}
+                        <li><a href="/dashboard">Administration</a></li>
+                    {% endif%}
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-3 my-1">
+                <img src="{% static 'img/logo.jpeg' %}" alt="" width="200">
+            </div>
+        </div>
+    </div>
+
+    <div class="container border-top">
+        <div class="col-12" style="margin-top: 20px;">
+            <h6 style="text-align: center; margin: 10px;">All Right Reserved DGM Kisangani. Copyriright &#xa9 2024</h6>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>

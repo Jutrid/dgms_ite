@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 my-1">
+                <img src="{% static 'img/logo.jpeg' %}" width="200" alt="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3 mx-auto" style="border: 1px solid black; margin-top: 20px; border-radius: 10px;">
+                <form action="/login/" method='post' class="need-validation">
+                    {% csrf_token %}
+                    <div style="width: min-content; margin: 20px auto;">
+                        <img src="{% static 'img/login.png' %}" alt="Se connecter">
+                    </div>
+                    <input type="text" name='username' style="font-size: 1.1rem;" class="form-control my-3 h2" placeholder="Entrer Votre Adresse Mail" >
+                    <input type="password" name='password' style="font-size: 1.1rem;" class="form-control my-3 h2" placeholder="Entrer le mot de passe" >
+                    <div style="width: min-content; margin: 0 auto;">
+                        <button
+                            id=""
+                            style="width: 200px;"
+                            class="btn btn-outline-primary my-3 p-3"
+                            role="button"
+                            type='submit'
+                            >Se Connecter</button
+                        >
+                    </div>
+
+                    {% for message in messages %}
+                        <p class="info">{{message}}</p>
+                    {% endfor %}
+                </form>
+
+                <p style="text-align: center;">Vous n'avez pas de compte ? Veuillez cliquez <a href="{% url "signin" %}">ici !</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>
