@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div
+                class="table-responsive-sm my-3"
+            >
+                <table
+                    class="table table-striped table-hover table-borderless table-primary align-middle" id="myTable"
+                >
+                    <thead class="table-light">
+                        <caption>
+                            Demandes de migration
+                        </caption>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>nationalité</th>
+                            <th>Numero du visa</th>
+                            <th>Date démande</th>
+                            <th>Photo</th>
+                            <th>Avis</th>
+                            <th>Détail Info</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id='mytable'>
+                        {% for demande in demandes %}
+                            <tr
+                                class="table"
+                            >
+                                <td scope="row">{{demande.id}}</td>
+                                <td scope="row">{{demande.immigre.nom}}</td>
+                                <td>{{demande.immigre.prenom}}</td>
+                                <td>{{demande.immigre.nationalite}}</td>
+                                <td>{{demande.document.num_visa}}</td>
+                                <td>{{demande.date_demande}}</td>
+                                <td><a href="/media/{{demande.immigre.img}}" class="btn btn-success">Voir</a></td>
+                                {% if demande.avis == 'N' %}
+                                    <td>
+                                        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdropLive{{demande.id}}">
+                                            Repondre
+                                        </button>
+                                    </td>
+
+                                    <div class="modal fade" id="staticBackdropLive{{demande.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="staticBackdropLiveLabel">Remarque</h5>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>En acceptant la demande, l'emetteur de la demande recevrant un mail pour lui confirmer sa demande est acceptée. Au contraire si la demande est rejetée, il recevra un mail qui le montre aussi.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                              <a href="/dashboard/gestion demande/desappouver{{demande.id}}" class="btn btn-danger">Désapprouver</a>
+                                              <a href="/dashboard/gestion demande/appouver{{demande.id}}" class="btn btn-primary">Appouver</a>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                {% elif demande.avis == 'A' %}
+                                    <td><p class="text-success" style="font-weight: bold;">Acceptée</p></td>
+                                {% else %}
+                                    <td><p class="text-danger" style="font-weight: bold;">Refusée</p></td>
+                                {% endif%}
+                                <td><a href="/dashboard/gestion demande/detail{{demande.id}}" class="btn btn-info">Voir ...</a></td>
+                                
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        {% if demandes.has_other_pages %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if demandes.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ demandes.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% for page_number in demandes.paginator.page_range %}
+                        {% if demandes.number == page_number %}
+
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">{{page_number}}</a>
+                        </li>
+
+                            {% else %}
+
+                            <li class="page-item" aria-current="page">
+                                <a class="page-link" href="?page={{page_number}}">{{page_number}}</a>
+                            </li>
+                        
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if demandes.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ demandes.next_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% comment %} <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li> {% endcomment %}
+                </ul>
+            </nav>
+        {% endif %}
+        
+        <a href="{% url "dashboard" %}" class="btn btn-secondary"><- Retour</a>
+    </div>
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script>
+        function conf() {
+            alert('Vous venez de supprimer une demande')
+        };
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#search").on("keyup", function(){
+                var value = $(this).val().toLowerCase();
+                $("#mytable tr").filter(function(){
+                    $(this).toggle($(this).text().toLocaleLowerCase().indexOf(value)>-1)
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

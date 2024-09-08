@@ -44,7 +44,7 @@
                                 <td scope="row">{{place.nom}}</td>
                                 <td>{{place.description}}</td>
                                 <td><a href="/media/{{place.img}}" class="btn btn-success">Voir</a></td>
-                                <td><a onclick="conf()" href="" class="btn btn-danger">Supprimer</a></td>
+                                <td><a onclick="conf()" href="/dashboard/gestion place/delete{{place.id}}" class="btn btn-danger">Supprimer</a></td>
                             </tr>
                         {% endfor %}
 

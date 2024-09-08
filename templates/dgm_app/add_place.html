@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Ajout d'un site</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -12,13 +12,13 @@
     <div class="container">
         <div class="row">
             <div class="col-3 mx-auto" style="border: 1px solid black; margin-top: 20px; border-radius: 10px;">
-                <form action="" method='post' class="need-validation">
+                <form action="/dashboard/gestion place/add" enctype="multipart/form-data" method='post' class="need-validation">
                     {% csrf_token %}
                     <div style="width: min-content; margin: 20px auto;">
-                        <img src="{% static 'img/place.png' %}" alt="Se connecter">
+                        <img src="{% static 'img/place.png' %}" width="150" alt="Se connecter">
                     </div>
                     <input type="text" name='nom' style="font-size: 1.1rem;" class="form-control my-3 h2" placeholder="Entrer le nom du site" >
-                    <textarea class="form-control" name="desc"></textarea>
+                    <textarea class="form-control" name="desc" placeholder="Ajouter une description"></textarea>
                     <input type="file" name='img' style="font-size: 1.1rem;" class="form-control my-3 h2" >
                     <div style="width: min-content; margin: 0 auto;">
                         <button

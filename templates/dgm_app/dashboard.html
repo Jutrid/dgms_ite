@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="container">
-        <div class="row my-4  border-bottom border-primary text-center">
+        <div class="row my-4 text-center">
             <div class="col-md-4">
-                <h1 style="font-size: 2.4rem;" class="text-primary">Administration du site</h1>
+                <h1 style="font-size: 2.4rem;" class="badge bg-primary">Administration du site</h1>
             </div>
 
         </div>
@@ -40,12 +40,12 @@
                 </a>
             </div>
             <div class="col-md-3 border rounded my-4 mx-3" style="background-color: rgba(128, 128, 128, 0.274);">
-                <a href="" style="text-decoration: none;">
+                <a href="/dashboard/gestion demande" style="text-decoration: none;">
                     <div class="mx-auto" style="width: min-content;">
                         <img src="{% static 'img/demande.png' %}" alt="">
                     </div>
                     <div>
-                        <h5 class="text-center text-primary">Gestion des Demandes</h5>
+                        <h5 class="text-center text-primary">Gestion des Demandes <span style="background-color: red; padding: 10px; color: white; border-radius: 50%;">+{{nb_lu}}</span></h5>
                         <h4 class="text-center" style="color: rgb(8, 8, 88);">Nombre: </h4>
                     </div>
                 </a>
@@ -62,7 +62,7 @@
                 </a>
             </div>
         </div>
-        <a href="{% url "home" %}" class="btn btn-outline-danger p-3">Page D'accueil</a>
+        <a href="{% url "home" %}" class="btn btn-outline-primary p-3">Page D'accueil</a>
     </div>
     <div class="container">
         <div class="col-12" style="margin-top: 20px;">

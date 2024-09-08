@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail demande</title>
+</head>
+
+<body>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        *{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        header img{
+            transition: 0.6s;
+            cursor: pointer;
+        }
+
+        header img:hover{
+            transform: translateX(-20px)
+        }
+
+        header nav a{
+            margin: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        header nav a:hover{
+            color: brown;
+        }
+
+        footer ul a{
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer ul li{
+            transition: 0.3s;
+        }
+
+        footer ul li:hover{
+            transform: translateX(5px);
+        }
+
+        .titre{
+            text-align: center;
+            background-color: rgb(29, 29, 172);
+            color: aliceblue;
+        }
+
+        .sous_titre{
+            background-color: rgb(169, 169, 206);
+            font-size: 1.2rem;
+        }
+
+        .data {
+            display: flex; 
+            justify-content: space-between;
+        }
+
+        .data h6{
+            font-size: 0.9rem;
+        }
+        
+
+    </style>
+    <div>
+        <div>
+            <div>
+                <h1 class="titre">Direction Génrale de Migration (DGM)</h1>
+            </div>
+            <div class="">
+                <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum ab blanditiis odit nostrum praesentium voluptates consequatur dignissimos atque, harum ratione temporibus, rem maiores? Dolor fugit earum mollitia a sequi doloribus.</p>
+            </div>
+            <div class="row col-9 mx-auto my-2">
+                <h5 class="sous_titre"><u>Informations Personnelles</u></h5>
+            </div>
+            <div class="data">
+                <div>
+                    <h6 class="col-3">Nom : <span class="text-primary">{{demandes.immigre.nom}}</span></h6>
+                    <h6 class="col-3">Post-nom : <span class="text-primary">{{demandes.immigre.postnom}}</span></h6>
+                    <h6 class="col-3">Prénom : <span class="text-primary">{{demandes.immigre.prenom}}</span></h6>
+                    <h6 class="col-3">Sexe : <span class="text-primary">{{demandes.immigre.sexe}}</span></h6>
+                    <h6 class="col-3">Nationalité : <span class="text-primary">{{demandes.immigre.nationalite}}</span></h6>
+                    <h6 class="col-3">Date de naissance : <span class="text-primary">{{demandes.immigre.date_nais}}</span></h6>
+                </div>
+                <div>
+                    <h6 class="col-3">Pays de residence : <span class="text-primary">{{demandes.immigre.pays_residence}}</span></h6>
+                    <h6 class="col-3">Addresse de residence : <span class="text-primary">{{demandes.immigre.adress_residence}}</span></h6>
+                    <h6 class="col-3">Profession : <span class="text-primary">{{demandes.immigre.profession}}</span></h6>
+                    <h6 class="col-3">Provenance : <span class="text-primary">{{demandes.immigre.provenance}}</span></h6>
+                </div>
+            </div>
+            <div class="row col-9 mx-auto my-2">
+                <h5 class="sous_titre"><u>Informations sur les documents</u></h5>
+            </div>
+            <div class="data">
+                <h6 class="col-6">Numero du visa : <span class="text-primary">{{demandes.document.num_visa}}</span></h6>
+                <h6 class="col-6">Numero de la carte d'identité : <span class="text-primary">{{demandes.document.num_carte_id}}</span></h6>
+            </div>
+            <div class="row col-9 mx-auto my-2">
+                <h5 class="sous_titre"><u>Informations sur le séjour</u></h5>
+            </div>
+            <div class="data">
+                <h6 class="col-6">But du séjour : <span class="text-primary">{{demandes.sejour.but}}</span></h6>
+                <h6 class="col-6">Début du séjour : <span class="text-primary">{{demandes.sejour.date_debut}}</span></h6>
+                <h6 class="col-6">Fin du séjour : <span class="text-primary">{{demandes.sejour.date_fin}}</span></h6>
+                <h6 class="col-6">Ville à résider : <span class="text-primary">{{demandes.sejour.ville}}</span></h6>
+            </div>
+            
+            <div class="row col-10 mx-auto my-2 py-3" >
+                <div class="col-3">
+                    <img src="../../static/img/logo.jpeg" width="200" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- <script src="../../static/js/bootstrap.bundle.js"></script>
+    <script src="../../static/js/bootstrap.js"></script> -->
+</body>
+</html>

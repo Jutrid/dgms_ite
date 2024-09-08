@@ -1,3 +1,6 @@
 db.sqlite3
 dgm_site/__pycache__
+dgm_site/migrations
 dgm_app/__pycache__
+dgm_app/migrations
+media

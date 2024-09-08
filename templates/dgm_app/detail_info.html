@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail demande</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div
+        class="container my-4"
+    >
+        <div class="row d-flex justify-content-end">
+            <div class="col-1">
+                <a href="{% url "gst_demande" %}" class="btn btn-info py-3">Retour</a>
+            </div>
+            <div class="col-1">
+                <a href="/dashboard/gestion demande/get_pdf_file1" class="btn btn-success py-3">Telecharger</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row my-4 border">
+            <div class="col-12">
+                <h1 class="text-center py-1 bg-primary my-2 text-light">Direction Génrale de Migration (DGM)</h1>
+                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ullam doloremque? Aut, animi eveniet. Ipsum reiciendis sapiente suscipit dolor asperiores.</p>
+            </div>
+            <div class="row col-9 mx-auto my-2">
+                <div class="col-3 py-3">
+                    <img src="/media/{{demande.immigre.img}}" style="border-radius: 5px; width: 80%;" alt="">
+                </div>
+            </div>
+            <div class="row col-9 mx-auto my-2">
+                <h5><u>Informations Personnelles</u></h5>
+            </div>
+            <div class="row col-9 mx-auto border my-2 py-2">
+                <h6 class="col-3">Nom : <span class="text-primary">{{demande.immigre.nom}}</span></h6>
+                <h6 class="col-3">Post-nom : <span class="text-primary">{{demande.immigre.postnom}}</span></h6>
+                <h6 class="col-3">Prénom : <span class="text-primary">{{demande.immigre.prenom}}</span></h6>
+                <h6 class="col-3">Sexe : <span class="text-primary">{{demande.immigre.sexe}}</span></h6>
+                <h6 class="col-3">Nationalité : <span class="text-primary">{{demande.immigre.nationalite}}</span></h6>
+                <h6 class="col-3">Date de naissance : <span class="text-primary">{{demande.immigre.date_nais}}</span></h6>
+                <h6 class="col-3">Pays de residence : <span class="text-primary">{{demande.immigre.pays_residence}}</span></h6>
+                <h6 class="col-3">Addresse de residence : <span class="text-primary">{{demande.immigre.adress_residence}}</span></h6>
+                <h6 class="col-3">Profession : <span class="text-primary">{{demande.immigre.profession}}</span></h6>
+                <h6 class="col-3">Provenance : <span class="text-primary">{{demande.immigre.provenance}}</span></h6>
+            </div>
+            <div class="row col-9 mx-auto my-2">
+                <h5><u>Informations sur les documents</u></h5>
+            </div>
+            <div class="row col-9 mx-auto my-2 border py-3">
+                <h6 class="col-6">Numero du visa : <span class="text-primary">{{demande.document.num_visa}}</span></h6>
+                <h6 class="col-6">Numero de la carte d'identité : <span class="text-primary">{{demande.document.num_carte_id}}</span></h6>
+            </div>
+            <div class="row col-9 mx-auto my-2">
+                <h5><u>Informations sur le séjour</u></h5>
+            </div>
+            <div class="row col-9 mx-auto my-2 border py-3">
+                <h6 class="col-6">But du séjour : <span class="text-primary">{{demande.sejour.but}}</span></h6>
+                <h6 class="col-6">Début du séjour : <span class="text-primary">{{demande.sejour.date_debut}}</span></h6>
+                <h6 class="col-6">Fin du séjour : <span class="text-primary">{{demande.sejour.date_fin}}</span></h6>
+                <h6 class="col-6">Ville à résider : <span class="text-primary">{{demande.sejour.ville}}</span></h6>
+            </div>
+            
+            <div class="row col-10 mx-auto my-2 py-3" >
+                <div class="col-3">
+                    <img src="{% static 'img/logo.jpeg' %}" width="200" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

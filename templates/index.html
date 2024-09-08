@@ -33,6 +33,7 @@
                 src="/media/{{na.img}}"
                 class="w-100 d-block"
                 alt="First slide"
+                style="border-radius: 5px;"
             />
             <div class="carousel-caption d-none d-md-block">
                 <h3>{{na.titre}}</h3>
@@ -82,40 +83,23 @@
     </button>
 </div>
 <div class="container">
-    <div class="row my-5">
-        <div class="col-12" style="display: flex; align-items: center;">
-            <div>
-                <img src="/media/{{a.img}}" width="600" alt="" style="cursor: pointer;">
+    <div class="row mb-2 my-3 d-flex justify-content-center">
+        {% for place in places %}
+            <div class="col-md-8">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">{{place.nom}}</strong>
+                <h3 class="mb-0">{{a.nom}}</h3>
+                <p class="card-text mb-auto">{{place.description|truncatewords:20}}</p>
+                <a href="/one{{place.id}}/" class="stretched-link">Continuez ...</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                    <img src="/media/{{place.img}}" alt="" width='500' style="cursor: pointer;">
+                </div>
             </div>
-            <div style="margin-left: 40px;">
-                <h1>{{a.nom}}</h1>
-                <p style="text-align: justify;">{{a.description|truncatewords:20}} <a href="/one{{a.id}}/">Voir Plus</a> </p>
             </div>
-        </div>
-    </div>
-    <div class="row my-10">
-        <div class="col-12" style="display: flex; align-items: center;">
-            <div style="margin-right: 40px;">
-                <h1>{{b.nom}}</h1>
-                <p style="text-align: justify;">{{b.description|truncatewords:20}} <a href="/one{{b.id}}/">Voir Plus</a></p>
-            </div>
-            <div>
-                <img src="/media/{{b.img}}" alt="" width="600" style="cursor: pointer;">
-            </div>
-        </div>
-    </div>
-    <div class="row my-5">
-        <div class="col-12" style="display: flex; align-items: center;">
-            <div>
-                <img src="/media/{{c.img}}" width="600" alt="" style="cursor: pointer;">
-            </div>
-            <div style="margin-left: 40px;">
-                <h1>{{c.nom}}</h1>
-                <p style="text-align: justify;">{{c.description|truncatewords:20}} <a href="/one{{c.id}}/">Voir Plus</a></p>
-            </div>
-        </div>
-    </div>
-</div>
+        {% endfor %}
+    
 
 {% endblock content %}
 

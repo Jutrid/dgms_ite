@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row border-bottom">
             <div class="col-3">
-                <a href="" class="btn btn-outline-primary my-3">Ajouter</a>
+                <a href="/dashboard/gestion new/add" class="btn btn-outline-primary my-3">Ajouter</a>
             </div>
         </div>
 
@@ -44,7 +44,7 @@
                                 <td scope="row">{{new.titre}}</td>
                                 <td>{{new.description}}</td>
                                 <td><a href="/media/{{new.img}}" class="btn btn-success">Voir</a></td>
-                                <td><a onclick="conf()" href="" class="btn btn-danger">Supprimer</a></td>
+                                <td><a onclick="conf()" href="/dashboard/gestion new/delete{{new.id}}" class="btn btn-danger">Supprimer</a></td>
                             </tr>
                         {% endfor %}
 

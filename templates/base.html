@@ -33,44 +33,93 @@
     {% block content %}
     {% endblock content %}
 
-    <footer class="container border-top">
-        <div class="row my-4" style="margin-top: 30px; padding: 20px; display: flex; justify-content: space-around;">
-            <div class="col-3">
-                <h3 class="text-center" id='contact'>Contact</h3>
-                <ul style="list-style-type: none;">
-                    <li><img src="{% static 'img/phone.svg' %}" alt=""> 92038292</li>
-                    <li><img src="{% static 'img/facebook.svg' %}" alt=""> dgmdrc</li>
-                    <li><img src="{% static 'img/instagram.svg' %}" alt=""> dgmdrc</li>
-                    <li><img src="{% static 'img/whatsapp.svg' %}" alt=""> 92038292</li>
-                    <li>x: 92038292</li>
-                </ul>
-            </div>
-            <div class="col-3">
-                <h3 class="text-center" id='about'>A propos</h3>
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil beatae recusandae vel asperiores provident architecto tempore accusamus, vero laboriosam velit.</p>
-            </div>
-            <div class="col-3">
-                <h3 class="text-center">Lien rapide</h3>
-                <ul style="list-style-type: none;">
-                    <li><a href="{% url "home" %}">Accueil</a></li>
-                    <li><a href="{% url "more" %}">Voir plus</a></li>
-                    <li><a href="{% url "login" %}">Connexion</a></li>
-                    <li><a href="#debut">Haut de page</a></li>
-                    {% if user.is_superuser %}
-                        <li><a href="/dashboard">Administration</a></li>
-                    {% endif%}
-                </ul>
-            </div>
-        </div>
-    </footer>
-
     <div class="container">
-        <div class="row">
-            <div class="col-3 my-1">
-                <img src="{% static 'img/logo.jpeg' %}" alt="" width="200">
-            </div>
-        </div>
-    </div>
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+          <div class="col mb-3">
+            <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+              <img src="{% static "img/logo.jpeg" %}" alt="" width='150'>
+            </a>
+            <p class="text-body-secondary">&copy; 2024</p>
+          </div>
+      
+          <div class="col mb-3">
+      
+          </div>
+      
+          <div class="col mb-3">
+            <h5>Lien Rapide</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="{% url "home" %}" class="nav-link p-0 text-body-secondary">Accueil</a></li>
+              <li class="nav-item mb-2"><a href="{% url "login" %}" class="nav-link p-0 text-body-secondary">Connexion</a></li>
+              <li class="nav-item mb-2"><a href="{% url "signin" %}" class="nav-link p-0 text-body-secondary">S'inscrire</a></li>
+              <li class="nav-item mb-2"><a href="{% url "form_demande" %}" class="nav-link p-0 text-body-secondary">Commencer</a></li>
+              {% if user.is_superuser %}
+                <li class="nav-item mb-2"><a href="{% url "dashboard" %}" class="nav-link p-0 text-body-secondary">Admin</a></li>
+              {% endif %}
+            </ul>
+          </div>
+      
+          <div class="col mb-3">
+            <h5>A propos</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">Historique</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable2">Statut Administratif</a></li>
+
+              <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenteredScrollableTitle">Historique</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>La DGM a été créée le 27 mai 1997 par Laurent-Désiré Kabila , dix jours seulement après le renversement de Mobutu Sese Seko par l' AFDL ( Alliance des Forces Démocratiques pour la Libération du Congo-Zaïre ). L'objectif et la structure organisationnelle de l'agence ont été formalisés par l'ordonnance constitutionnelle n° 002/2003. La DGM a remplacé l'ancienne Agence Nationale d'Immigration (ANI), qui avait fonctionné pendant le régime de Mobutu.</p>
+                      <p>Depuis sa création, la DGM a fonctionné avec quatre divisions, dont la Division de la politique étrangère et des frontières, collectivement appelées « DPEF ». Cependant, une restructuration notable a eu lieu le 24 janvier 2003, comme indiqué dans le n° 06/DP/00/DGM/BC/044/2003, qui a donné naissance à deux entités distinctes : la Division de la police des étrangers (DPE) et la Division de la police des frontières ( DPF).</p>
+                      <p>Les responsabilités spécifiques de la DPE sont en attente de clarification. Ces responsabilités devraient être définies par les mesures d'application associées au décret-loi n° 002/2003 du 11 janvier 2003 portant création et organisation de la DGM.</p>
+                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="exampleModalCenteredScrollable2" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenteredScrollableTitle">Statut Administratif</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>La DGM est régie par la loi n° 81-003 du 17 juillet 1981 qui définit le statut du personnel de carrière des services publics de l'État . Cependant, en raison de la nature unique des services fournis par la DGM et de sa mission distincte, le Président de la République est habilité à édicter des règlements administratifs par décret. Ces règlements administratifs sont conçus pour traiter d'aspects spécifiques, notamment les avantages sociaux , les procédures disciplinaires , les mécanismes de recours , les conditions d'éligibilité à la retraite et les avantages associés pour le personnel de la DGM. [ 1 ] Cette approche reconnaît la nécessité de lignes directrices adaptées qui tiennent compte du rôle et des responsabilités spécialisés de l'agence, garantissant que ses employés bénéficient d'un soutien et d'une supervision appropriés. </p>
+                      <p>Entre parenthèses, les réformes administratives comprennent l'abrogation et les dispositions finales des ordonnances antérieures, telles que l'ordonnance n° 87-003 du 7 janvier 1987 et l'ordonnance n° 87-054 du 9 février 1987, qui fixaient l'organisation et le fonctionnement de l'ANI. Ces ordonnances, ainsi que toutes les dispositions antérieures contraires au décret-loi nouvellement promulgué, sont également invalidées.</p>
+                      <p>Les responsabilités spécifiques de la DPE sont en attente de clarification. Ces responsabilités devraient être définies par les mesures d'application associées au décret-loi n° 002/2003 du 11 janvier 2003 portant création et organisation de la DGM.</p>
+                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </ul>
+          </div>
+      
+          <div class="col mb-3">
+            <h5>Contact</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Whatsapp</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">X</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Facebook</a></li>
+            </ul>
+          </div>
+        </footer>
+      </div>
+      
+      <div class="b-example-divider"></div>
 
     <div class="container border-top">
         <div class="col-12" style="margin-top: 20px;">
